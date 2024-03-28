@@ -174,7 +174,7 @@ export const editTask = (taskID, updateTask) => (dispatch) => {
       `https://greenmentor-1-q72w.onrender.com/task/updateTask/${taskID}`,
       updateTask
     )
-    .then(() => {
+    .then((res) => {
       dispatch({ type: TASK_EDIT_SUCC, payload: res.data });
       console.log(res.data);
     })
