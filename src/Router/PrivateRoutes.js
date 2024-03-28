@@ -10,7 +10,7 @@ const PrivateRoutes = ({children}) => {
   return auth ? (
     children
   ) : (
-    <Navigate to={"/signin"} state={location.pathname} replace/>
+    <Navigate to={"/"} state={location.pathname} replace/>
   )
 }
 
