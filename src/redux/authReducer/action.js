@@ -125,8 +125,8 @@ export const postTask = (taskdata) => (dispatch) => {
       dispatch({ type: TASK_SUCCESS, payload: res.data });
       console.log(res.data);
     })
-    .catch((error) => {
-      dispatch({ type: TASK_FAIL });
+    .catch((err) => {
+      dispatch({ type: TASK_FAIL , payload : err.response.data.msg });
     });
 };
 

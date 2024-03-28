@@ -24,7 +24,7 @@ const logoStyle = {
 
 function Navbar() {
   const [open, setOpen] = React.useState(false);
-  const {auth} = useSelector((store) => store.authReducer)
+  const { auth } = useSelector((store) => store.authReducer);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -96,25 +96,19 @@ function Navbar() {
                 />
               </Link>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem
-               
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                <Link to={"/task"} >
-                <Typography variant="body2" color="text.primary"  >
-                    Tasks
-                  </Typography>
-                </Link>
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <Link to={"/task"} sx={{ textDecoration: "none" }}>
+                    <Typography variant="body2" color="text.primary">
+                      Tasks
+                    </Typography>
+                  </Link>
                 </MenuItem>
 
-                <MenuItem
-                 
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Link to={"/usertask"} >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <Link to={"/usertask"} sx={{ textDecoration: "none" }}>
+                    <Typography variant="body2" color="text.primary">
+                      Highlights
+                    </Typography>
                   </Link>
                 </MenuItem>
               </Box>
@@ -182,46 +176,46 @@ function Navbar() {
                   >
                     {/* <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} /> */}
                   </Box>
-                  <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
-                  </MenuItem>
+                  <Link to={"/task"} sx={{ textDecoration: "none" }}>
+                    <MenuItem>Task</MenuItem>
+                  </Link>
+                  <Link to={"/usertask"} sx={{ textDecoration: "none" }}>
+                    <MenuItem>Highlights</MenuItem>
+                  </Link>
+
                   <Divider />
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign up
-                    </Button>
-                  </MenuItem>
-                  <MenuItem>
+                  {auth ? (
+                    <>
+                     <Link to={"/task"} >
+                     <MenuItem>
+                        <Button
+                          color="primary"
+                          variant="outlined"
+                          component="a"
+                          
+                          sx={{ width: "100%" }}
+                        >
+                          Get Started
+                        </Button>
+                      </MenuItem>
+                     </Link>
+                    </>
+                  ) : (
+                   <Link to={"/signin"} >
+                    <MenuItem>
                     <Button
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
+                      
                       sx={{ width: "100%" }}
                     >
-                      Sign in
+                      Sign In
                     </Button>
                   </MenuItem>
+                   </Link>
+                
+                  )}
                 </Box>
               </Drawer>
             </Box>
