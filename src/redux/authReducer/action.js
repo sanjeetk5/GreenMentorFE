@@ -157,8 +157,8 @@ export const deleteTask = (userID) => (dispatch) => {
   dispatch({ type: TASK_DEL_REQ });
   return axios
     .delete(`https://greenmentor-1-q72w.onrender.com/task/deleteTask/${userID}`)
-    .then(() => {
-      dispatch({ type: TASK_DEL_SUCC });
+    .then((res) => {
+      dispatch({ type: TASK_DEL_SUCC , payload:res.data });
     })
     .catch((err) => {
       dispatch({ type: TASK_DEL_FAIL });

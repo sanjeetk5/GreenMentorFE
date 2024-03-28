@@ -169,6 +169,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
+        gettask: [],
         isError: false,
       };
 
