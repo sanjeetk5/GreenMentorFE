@@ -18,5 +18,8 @@ Run npm install outside server folder to update the packages of frontend
 
 You can start the server using command npm run start of both Frontend and Backend
 
+For further understanding of website you can see this video 
+Link - https://drive.google.com/file/d/1elW1Vxuzb_HadySKwkhmkTyEqs6nPGGz/view?usp=sharing
+
 
 
